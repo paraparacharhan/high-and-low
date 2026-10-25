@@ -12,8 +12,8 @@ public enum Guess {
         this.key = key;
     }
 
-    public boolean judge(Card currentCard, Card nextCard) {
-        return currentCard.isStrongerThan(nextCard);
+    public Guess judge(Card currentCard, Card nextCard) {
+        return nextCard.isStrongerThan(currentCard) ? HIGH : LOW;
     }
 
     public boolean isHit(Guess guess) {
