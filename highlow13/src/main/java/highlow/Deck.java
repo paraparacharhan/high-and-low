@@ -6,7 +6,7 @@ import java.util.LinkedList;
 class Deck {
     private LinkedList<Card> deck = new LinkedList<>();
 
-    public LinkedList<Card> shuffled() {
+    public void shuffled() {
         // LinkedList<Card> deck = new LinkedList<>();
         for (Rank r : Rank.values()) {
             for (Suit s : Suit.values()) {
@@ -15,8 +15,6 @@ class Deck {
         }
 
         Collections.shuffle(deck);
-
-        return deck;
     }
 
     public Card draw() {

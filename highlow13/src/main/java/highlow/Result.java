@@ -9,7 +9,7 @@ public enum Result {
         return 1;
     }
 
-    // public boolean canContinue(Guess guess) {
-    // return guess.isHit(guess)
-    // }
+    public boolean canContinue(Deck deck) {
+        return deck.isEmpty();
+    }
 }

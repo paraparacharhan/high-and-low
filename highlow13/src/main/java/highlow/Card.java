@@ -14,7 +14,7 @@ public record Card(Rank rank, Suit suit) {
         return this.rank.compareTo(card.rank) == 0;
     }
 
-    public String label(Card card) {
+    public String label() {
         // String rankLabel = this.rank.name();
         // String suitLabel = this.rank.name();
         return this.rank.label() + " of " + this.rank.name();
