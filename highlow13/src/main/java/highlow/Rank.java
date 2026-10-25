@@ -83,5 +83,4 @@ public enum Rank {
     };
 
     public abstract boolean isStrongerThan(Rank rank);
-
 }
