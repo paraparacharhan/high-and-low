@@ -1,7 +1,7 @@
 package highlow;
 
 public enum Rank {
-    TWO() {
+    TWO("2") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
@@ -9,78 +9,88 @@ public enum Rank {
             // return this.ordinal() > rank.ordinal();
         }
     },
-    THREE() {
+    THREE("3") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    FOUR() {
+    FOUR("4") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    FIVE() {
+    FIVE("5") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    SIX() {
+    SIX("6") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    SEVEN() {
+    SEVEN("7") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    EIGHT() {
+    EIGHT("8") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    NINE() {
+    NINE("9") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    TEN() {
+    TEN("10") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    JACK() {
+    JACK("J") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    QUEEN() {
+    QUEEN("Q") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    KING() {
+    KING("K") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     },
-    ACE() {
+    ACE("A") {
         @Override
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
     };
 
+    private final String label;
+
+    Rank(String label) {
+        this.label = label;
+    }
+
     public abstract boolean isStrongerThan(Rank rank);
+
+    public String label() {
+        return label;
+    }
 }
