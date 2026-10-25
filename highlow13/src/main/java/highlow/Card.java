@@ -17,6 +17,6 @@ public record Card(Rank rank, Suit suit) {
     public String label() {
         // String rankLabel = this.rank.name();
         // String suitLabel = this.rank.name();
-        return this.rank.label() + " of " + this.rank.name();
+        return this.rank.label() + " of " + this.suit.name();
     }
 }

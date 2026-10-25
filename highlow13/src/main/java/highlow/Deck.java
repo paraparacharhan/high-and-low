@@ -18,8 +18,7 @@ class Deck {
     }
 
     public Card draw() {
-        // TODO : 真値を直す
-        return this.isEmpty() ? deck.pop() : deck.pop();
+        return deck.pop();
     }
 
     public boolean isEmpty() {

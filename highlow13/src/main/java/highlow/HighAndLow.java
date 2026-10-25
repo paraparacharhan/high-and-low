@@ -8,7 +8,9 @@ class HighAndLow {
         Card currentCard = deck.draw();
         int gameCount = 0;
         while (true) {
-            System.out.println(deck.draw().label());
+            System.out.println(currentCard.label());
+            // Card nextCard = deck.draw();
+            // System.out.println(nextCard.label());
             Guess playerGuess = player.guess();
             Card nextCard = deck.draw();
             Guess rank = playerGuess.judge(currentCard, nextCard);
@@ -18,7 +20,7 @@ class HighAndLow {
                 break;
             }
 
-            if (!Result.HIT.canContinue(deck)) {
+            if (Result.HIT.canContinue(deck)) {
                 break;
             } else {
                 currentCard = nextCard;
