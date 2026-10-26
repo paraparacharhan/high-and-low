@@ -11,12 +11,12 @@ class Player {
 
     public Guess guess() {
         while (true) {
-            System.out.print("h & l > ");
+            System.out.print("Is the next card [h]igh or [l]ow? > ");
             String input = scanner.nextLine();
             if (Guess.fromKey(input).isPresent()) {
                 return Guess.fromKey(input).orElseThrow();
             }
-            System.out.println("h or l");
+            System.err.println("Please enter [h] or [l]");
         }
     }
 }
