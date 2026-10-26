@@ -1,5 +1,6 @@
 package highlow;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 public enum Guess {
@@ -21,6 +22,9 @@ public enum Guess {
     }
 
     public static Optional<Guess> fromKey(String input) {
-        return input.equals(HIGH.key) ? Optional.of(HIGH) : Optional.of(LOW);
+        // return input.equals(HIGH.key) ? Optional.of(HIGH) : Optional.of(LOW);
+        return Arrays.stream(Guess.values())
+                .filter(g -> g.key.equals(input))
+                .findFirst();
     }
 }
