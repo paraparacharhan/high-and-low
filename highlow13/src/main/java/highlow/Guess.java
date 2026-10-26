@@ -5,6 +5,7 @@ import java.util.Optional;
 
 public enum Guess {
     HIGH("h"),
+    SAME("s"),
     LOW("l");
 
     private final String key;
@@ -14,6 +15,9 @@ public enum Guess {
     }
 
     public Guess judge(Card currentCard, Card nextCard) {
+        if (nextCard.isSameStrength(currentCard)) {
+            return SAME;
+        }
         return nextCard.isStrongerThan(currentCard) ? HIGH : LOW;
     }
 
