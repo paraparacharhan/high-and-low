@@ -80,6 +80,12 @@ public enum Rank {
         public boolean isStrongerThan(Rank rank) {
             return this.compareTo(rank) > 0;
         }
+    },
+    JOKER("Joker") {
+        @Override
+        public boolean isStrongerThan(Rank rank) {
+            return this.compareTo(rank) > 0;
+        }
     };
 
     private final String label;

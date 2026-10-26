@@ -13,7 +13,7 @@ class Deck {
                 deck.add(new Card(r, s));
             }
         }
-
+        deck.add(new Card(Rank.JOKER, Suit.HEARTS));
         Collections.shuffle(deck);
     }
 

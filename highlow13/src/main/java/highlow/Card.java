@@ -11,7 +11,7 @@ public record Card(Rank rank, Suit suit) {
     }
 
     public boolean isSameStrength(Card card) {
-        return this.rank.compareTo(card.rank) == 0;
+        return this.rank.compareTo(card.rank) == 0 || this.rank == Rank.JOKER || card.rank == Rank.JOKER;
     }
 
     public String label() {
