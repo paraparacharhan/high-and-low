@@ -9,6 +9,9 @@ class Deck {
     public void shuffled() {
         // LinkedList<Card> deck = new LinkedList<>();
         for (Rank r : Rank.values()) {
+            if (r == Rank.JOKER) {
+                continue;
+            }
             for (Suit s : Suit.values()) {
                 deck.add(new Card(r, s));
             }
