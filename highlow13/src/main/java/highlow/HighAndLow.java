@@ -12,11 +12,14 @@ class HighAndLow {
             Guess rank = playerGuess.judge(currentCard, nextCard);
             if (playerGuess.isHit(rank)) {
                 gameCount += Result.HIT.point();
-                System.out.println("    Next card: " + nextCard.label() + " ... " + Result.HIT + "! (streak: "
-                        + gameCount + ", " + deck.remaining() + "cards left)");
+                System.out
+                        .println("    Next card: " + nextCard.label() + " ... " + Result.HIT.label() + "! (streak: "
+                                + gameCount + ", " + deck.remaining() + "cards left)");
             } else {
-                System.out.println("    Next card: " + nextCard.label() + " ... " + Result.MISS + "... (streak: "
-                        + gameCount + ", " + deck.remaining() + "cards left)");
+                System.out
+                        .println("    Next card: " + nextCard.label() + " ... " + Result.MISS.label() + "... (streak: "
+                                + gameCount + ", " + deck.remaining() + "cards left)");
+                System.out.println();
                 break;
             }
 
@@ -27,7 +30,7 @@ class HighAndLow {
             }
 
         }
-        System.out.println("GameOver. Your streak:" + gameCount);
+        System.out.println("GameOver. Your streak: " + gameCount);
 
     }
 }
