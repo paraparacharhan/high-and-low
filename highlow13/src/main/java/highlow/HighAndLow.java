@@ -16,11 +16,19 @@ class HighAndLow {
                         .println("    Next card: " + nextCard.label() + " ... " + Result.HIT.label() + "! (streak: "
                                 + gameCount + ", " + deck.remaining() + "cards left)");
             } else {
-                System.out
-                        .println("    Next card: " + nextCard.label() + " ... " + Result.MISS.label() + "... (streak: "
-                                + gameCount + ", " + deck.remaining() + "cards left)");
-                System.out.println();
-                break;
+                if (rank == Guess.SAME) {
+                    System.out
+                            .println("    Next card: " + nextCard.label() + " ... " + Result.DRAW.label()
+                                    + " (streak: "
+                                    + gameCount + ", " + deck.remaining() + "cards left)");
+                } else {
+                    System.out
+                            .println("    Next card: " + nextCard.label() + " ... " + Result.MISS.label()
+                                    + "... (streak: "
+                                    + gameCount + ", " + deck.remaining() + "cards left)");
+                    System.out.println();
+                    break;
+                }
             }
 
             if (Result.HIT.canContinue(deck)) {
