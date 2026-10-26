@@ -1,7 +1,7 @@
 package highlow;
 
 class HighAndLow {
-    public void play(Deck deck, Player player) {
+    public int play(Deck deck, Player player) {
         Card currentCard = deck.draw();
         System.out.println("First card: " + currentCard.label());
         int streak = 0;
@@ -40,5 +40,6 @@ class HighAndLow {
         }
         System.out.println("GameOver. Your streak: " + streak);
 
+        return streak;
     }
 }
