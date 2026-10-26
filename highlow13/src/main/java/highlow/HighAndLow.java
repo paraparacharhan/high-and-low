@@ -1,8 +1,5 @@
 package highlow;
 
-import java.nio.ReadOnlyBufferException;
-import java.util.Scanner;
-
 class HighAndLow {
     public void play(Deck deck, Player player) {
         Card currentCard = deck.draw();
