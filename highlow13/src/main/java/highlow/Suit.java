@@ -1,12 +1,16 @@
 package highlow;
 
 public enum Suit {
-    SPADES("Suit"),
-    HEARTS("Hearts"),
+    CLUBS("Clubs"),
     DIAMONDS("Diamonds"),
-    CLUBS("Clubs");
+    HEARTS("Hearts"),
+    SPADES("Suit");
 
     private final String label;
+
+    public boolean isStrongerThan(Suit suit) {
+        return this.compareTo(suit) > 0;
+    }
 
     Suit(String label) {
         this.label = label;
