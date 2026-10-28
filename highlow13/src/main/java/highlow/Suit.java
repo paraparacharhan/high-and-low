@@ -4,7 +4,7 @@ public enum Suit {
     CLUBS("Clubs"),
     DIAMONDS("Diamonds"),
     HEARTS("Hearts"),
-    SPADES("Suit");
+    SPADES("Spades");
 
     private final String label;
 
