@@ -5,7 +5,6 @@ import java.util.Optional;
 
 public enum Guess {
     HIGH("h"),
-    SAME("s"),
     LOW("l");
 
     private final String key;
@@ -14,19 +13,31 @@ public enum Guess {
         this.key = key;
     }
 
-    public Guess judge(Card currentCard, Card nextCard) {
-        if (nextCard.isSameStrength(currentCard)) {
-            return SAME;
+    public Result judge(Card currentCard, Card nextCard) {
+        if (currentCard.rank() == Rank.JOKER || nextCard.rank() == Rank.JOKER) {
+            return Result.DRAW;
         }
-        return nextCard.isStrongerThan(currentCard) ? HIGH : LOW;
+
+        if (nextCard.isStrongerThan(currentCard)) {
+            if (this == HIGH) {
+                return Result.HIT;
+            } else {
+                return Result.MISS;
+            }
+        } else {
+            if (this == LOW) {
+                return Result.HIT;
+            } else {
+                return Result.MISS;
+            }
+        }
     }
 
-    public boolean isHit(Guess guess) {
-        return this.equals(guess);
+    public boolean isHit(Card currentCard, Card nextCard) {
+        return this.judge(currentCard, nextCard) == Result.HIT;
     }
 
     public static Optional<Guess> fromKey(String input) {
-        // return input.equals(HIGH.key) ? Optional.of(HIGH) : Optional.of(LOW);
         return Arrays.stream(Guess.values())
                 .filter(g -> g.key.equals(input))
                 .findFirst();

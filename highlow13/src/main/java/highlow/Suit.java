@@ -8,12 +8,12 @@ public enum Suit {
 
     private final String label;
 
-    public boolean isStrongerThan(Suit suit) {
-        return this.compareTo(suit) > 0;
-    }
-
     Suit(String label) {
         this.label = label;
+    }
+
+    public boolean isStrongerThan(Suit suit) {
+        return this.compareTo(suit) > 0;
     }
 
     public String label() {

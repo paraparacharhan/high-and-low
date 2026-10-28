@@ -9,14 +9,17 @@ class HighAndLow {
             System.out.print("Current card: " + currentCard.label() + ". ");
             Guess playerGuess = player.guess();
             Card nextCard = deck.draw();
-            Guess rank = playerGuess.judge(currentCard, nextCard);
-            if (playerGuess.isHit(rank)) {
-                streak += Result.HIT.point();
+            // ここまではあってそう
+            // Result rank = playerGuess.judge(currentCard, nextCard);
+            // same判定かdraw判定を新たに作るか、drawを無くす
+            Result result = playerGuess.judge(currentCard, nextCard);
+            if (playerGuess.isHit(currentCard, nextCard)) {
+                streak += result.point();
                 System.out
                         .println("    Next card: " + nextCard.label() + " ... " + Result.HIT.label() + "! (streak: "
                                 + streak + ", " + deck.remaining() + "cards left)");
             } else {
-                if (rank == Guess.SAME) {
+                if (result == Result.DRAW) {
                     System.out
                             .println("    Next card: " + nextCard.label() + " ... " + Result.DRAW.label()
                                     + " (streak: "
@@ -31,7 +34,7 @@ class HighAndLow {
                 }
             }
 
-            if (Result.HIT.canContinue(deck)) {
+            if (result.canContinue(deck)) {
                 break;
             } else {
                 currentCard = nextCard;

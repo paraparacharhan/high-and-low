@@ -11,15 +11,15 @@ public enum Result {
         this.label = label;
     }
 
-    public String label() {
-        return label;
-    }
-
     public int point() {
         return 1;
     }
 
     public boolean canContinue(Deck deck) {
         return deck.isEmpty();
+    }
+
+    public String label() {
+        return label;
     }
 }
