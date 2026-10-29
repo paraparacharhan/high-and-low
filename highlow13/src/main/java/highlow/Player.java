@@ -1,5 +1,6 @@
 package highlow;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 class Player {
@@ -13,8 +14,9 @@ class Player {
         while (true) {
             System.out.print("Is the next card [h]igh or [l]ow? > ");
             String input = scanner.nextLine();
-            if (Guess.fromKey(input).isPresent()) {
-                return Guess.fromKey(input).orElseThrow();
+            Optional<Guess> guess = Guess.fromKey(input);
+            if (guess.isPresent()) {
+                return guess.orElseThrow();
             }
             System.err.println("Please enter [h] or [l]");
         }
