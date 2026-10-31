@@ -23,7 +23,7 @@ class HighAndLowApp {
         int currentRecord = 0;
         for (int i = 1; i <= gameRound; i++) {
             System.out.println("Round " + i + " start!");
-            deck.shuffled();
+            deck.setup();
             currentRecord = highAndLow.play(deck, player);
             maxRecord = Math.max(maxRecord, currentRecord);
             System.out.println();

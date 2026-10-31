@@ -6,7 +6,7 @@ import java.util.LinkedList;
 class Deck {
     private LinkedList<Card> deck = new LinkedList<>();
 
-    public void shuffled() {
+    public void setup() {
         deck.clear();
         for (Rank r : Rank.values()) {
             if (r == Rank.JOKER) {

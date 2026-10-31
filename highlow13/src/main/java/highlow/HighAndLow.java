@@ -18,22 +18,22 @@ class HighAndLow {
                 streak += result.point();
                 System.out
                         .println("    Next card: " + nextCard.label() + " ... " + Result.HIT.label() + "! (streak: "
-                                + streak + ", " + deck.remaining() + "cards left)");
+                                + streak + ", " + deck.remaining() + " cards left)");
+            } else if (playerGuess.isDraw(currentCard, nextCard)) {
+                System.out
+                        .println("    Next card: " + nextCard.label() + " ... " + Result.DRAW.label()
+                                + " (streak: "
+                                + streak + ", " + deck.remaining() + " cards left)");
             } else {
-                if (result == Result.DRAW) {
-                    System.out
-                            .println("    Next card: " + nextCard.label() + " ... " + Result.DRAW.label()
-                                    + " (streak: "
-                                    + streak + ", " + deck.remaining() + "cards left)");
-                } else {
-                    System.out
-                            .println("    Next card: " + nextCard.label() + " ... " + Result.MISS.label()
-                                    + "... (streak: "
-                                    + streak + ", " + deck.remaining() + "cards left)");
-                    System.out.println();
-                    break;
-                }
+                System.out
+                        .println("    Next card: " + nextCard.label() + " ... " + Result.MISS.label()
+                                + "... (streak: "
+                                + streak + ", " + deck.remaining() + " cards left)");
+                System.out.println();
+                break;
+
             }
+            System.out.println();
 
             currentCard = nextCard;
 

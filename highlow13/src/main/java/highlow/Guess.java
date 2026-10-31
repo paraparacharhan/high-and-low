@@ -37,6 +37,10 @@ public enum Guess {
         return this.judge(currentCard, nextCard) == Result.HIT;
     }
 
+    public boolean isDraw(Card currentCard, Card nextCard) {
+        return this.judge(currentCard, nextCard) == Result.DRAW;
+    }
+
     public static Optional<Guess> fromKey(String input) {
         return Arrays.stream(Guess.values())
                 .filter(g -> g.key.equals(input))
