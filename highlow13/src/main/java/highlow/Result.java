@@ -15,8 +15,8 @@ public enum Result {
         return 1;
     }
 
-    public boolean canContinue(Deck deck) {
-        return deck.isEmpty();
+    public boolean canContinue() {
+        return this == HIT || this == DRAW;
     }
 
     public String label() {

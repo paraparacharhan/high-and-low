@@ -5,14 +5,15 @@ class HighAndLow {
         Card currentCard = deck.draw();
         System.out.println("First card: " + currentCard.label());
         int streak = 0;
-        while (true) {
+        Result result;
+        do {
             System.out.print("Current card: " + currentCard.label() + ". ");
             Guess playerGuess = player.guess();
             Card nextCard = deck.draw();
             // ここまではあってそう
             // Result rank = playerGuess.judge(currentCard, nextCard);
             // same判定かdraw判定を新たに作るか、drawを無くす
-            Result result = playerGuess.judge(currentCard, nextCard);
+            result = playerGuess.judge(currentCard, nextCard);
             if (playerGuess.isHit(currentCard, nextCard)) {
                 streak += result.point();
                 System.out
@@ -34,13 +35,10 @@ class HighAndLow {
                 }
             }
 
-            if (result.canContinue(deck)) {
-                break;
-            } else {
-                currentCard = nextCard;
-            }
+            currentCard = nextCard;
 
-        }
+        } while (result.canContinue() && !deck.isEmpty());
+
         System.out.println("GameOver. Your streak: " + streak);
 
         return streak;
