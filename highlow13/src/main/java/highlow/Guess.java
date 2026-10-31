@@ -14,22 +14,26 @@ public enum Guess {
     }
 
     public Result judge(Card currentCard, Card nextCard) {
-        if (currentCard.rank() == Rank.JOKER || nextCard.rank() == Rank.JOKER) {
-            return Result.DRAW;
-        }
-
-        if (nextCard.isStrongerThan(currentCard)) {
-            if (this == HIGH) {
-                return Result.HIT;
+        if (currentCard instanceof StandardCard currentStandardCard
+                && nextCard instanceof StandardCard nextStandardCard) {
+            if (nextStandardCard.isStrongerThan(currentStandardCard)) {
+                if (this == HIGH) {
+                    return Result.HIT;
+                } else {
+                    return Result.MISS;
+                }
             } else {
-                return Result.MISS;
+                if (this == LOW) {
+                    return Result.HIT;
+                } else {
+                    return Result.MISS;
+                }
             }
         } else {
-            if (this == LOW) {
-                return Result.HIT;
-            } else {
-                return Result.MISS;
-            }
+            // どちらかが通常カードでなければ、Jokerが含まれているためDraw
+            // standardとjokerしかないことが守られていればOKそう
+            // プログラム都合だから良くないかも？？？
+            return Result.DRAW;
         }
     }
 

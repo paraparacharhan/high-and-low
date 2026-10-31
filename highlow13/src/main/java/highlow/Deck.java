@@ -9,14 +9,11 @@ class Deck {
     public void setup() {
         deck.clear();
         for (Rank r : Rank.values()) {
-            if (r == Rank.JOKER) {
-                continue;
-            }
             for (Suit s : Suit.values()) {
-                deck.add(new Card(r, s));
+                deck.add(new StandardCard(r, s));
             }
         }
-        deck.add(new Card(Rank.JOKER, Suit.HEARTS));
+        deck.add(new JokerCard());
         Collections.shuffle(deck);
     }
 

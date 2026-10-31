@@ -13,8 +13,7 @@ public enum Rank {
     JACK("J"),
     QUEEN("Q"),
     KING("K"),
-    ACE("A"),
-    JOKER("Joker");
+    ACE("A");
 
     private final String label;
 
