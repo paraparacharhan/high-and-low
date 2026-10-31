@@ -24,8 +24,8 @@ class Deck {
         return deck.pop();
     }
 
-    public boolean isEmpty() {
-        return deck.isEmpty();
+    public boolean hasCards() {
+        return !deck.isEmpty();
     }
 
     public int remaining() {

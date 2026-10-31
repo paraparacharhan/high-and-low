@@ -37,7 +37,7 @@ class HighAndLow {
 
             currentCard = nextCard;
 
-        } while (result.canContinue() && !deck.isEmpty());
+        } while (result.canContinue() && deck.hasCards());
 
         System.out.println("GameOver. Your streak: " + streak);
 
