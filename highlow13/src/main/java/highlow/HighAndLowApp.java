@@ -14,13 +14,14 @@ class HighAndLowApp {
         }
 
         Scanner scanner = new Scanner(System.in);
-
         Player player = new Player(scanner);
 
         HighAndLow highAndLow = new HighAndLow();
         Deck deck = new Deck();
+
         int maxRecord = 0;
         int currentRecord = 0;
+
         for (int i = 1; i <= gameRound; i++) {
             System.out.println("Round " + i + " start!");
             deck.setup();

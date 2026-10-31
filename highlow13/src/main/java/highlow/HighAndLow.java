@@ -2,18 +2,17 @@ package highlow;
 
 class HighAndLow {
     public int play(Deck deck, Player player) {
+        int streak = 0;
         Card currentCard = deck.draw();
         System.out.println("First card: " + currentCard.label());
-        int streak = 0;
         Result result;
+
         do {
             System.out.print("Current card: " + currentCard.label() + ". ");
             Guess playerGuess = player.guess();
             Card nextCard = deck.draw();
-            // ここまではあってそう
-            // Result rank = playerGuess.judge(currentCard, nextCard);
-            // same判定かdraw判定を新たに作るか、drawを無くす
             result = playerGuess.judge(currentCard, nextCard);
+
             if (playerGuess.isHit(currentCard, nextCard)) {
                 streak += result.point();
                 System.out

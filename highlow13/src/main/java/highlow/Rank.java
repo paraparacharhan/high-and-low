@@ -22,9 +22,9 @@ public enum Rank {
     }
 
     public boolean isStrongerThan(Rank rank) {
-        return this.compareTo(rank) > 0;
         // 位置ではなく順序関係を知りたいため、compareTO()を使用
         // return this.ordinal() > rank.ordinal();
+        return this.compareTo(rank) > 0;
     }
 
     public boolean isSameRank(Rank rank) {
